@@ -1,0 +1,11 @@
+/.venv
+
+# Ignorer les fichiers de logs
+*.log
+
+# Ou seulement response.log si tu veux être plus précis
+response.log
+
+# Ignorer tous les dossiers __pycache__ et leurs contenus
+__pycache__/
+*.py[cod]
