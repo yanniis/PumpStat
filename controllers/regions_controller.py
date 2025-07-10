@@ -1,7 +1,9 @@
 import requests
+import os
+from dotenv import load_dotenv
 
-RAVEN_URL = "https://a.free.nosqlproject.ravendb.cloud/databases/prixcarburant"
-CERT = ("certif/client.pem", "certif/client.key")
+RAVEN_URL = os.getenv("RAVEN_URL")
+CERT = (os.getenv("CERT_PATH"), os.getenv("KEY_PATH"))
 
 def get_stations_by_region(code_region):
     query = {

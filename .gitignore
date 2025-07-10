@@ -9,3 +9,5 @@ response.log
 # Ignorer tous les dossiers __pycache__ et leurs contenus
 __pycache__/
 *.py[cod]
+
+# Dans le cas de ce projet le .env ne sera pas ajouté au gitignore
