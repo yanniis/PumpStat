@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 RAVEN_URL = os.getenv("RAVEN_URL")
 CERT = (os.getenv("CERT_PATH"), os.getenv("KEY_PATH"))
 
+# Fonction pour récupérer les stations par région
 def get_stations_by_region(code_region):
     query = {
         "Query": f"""
@@ -17,6 +18,7 @@ def get_stations_by_region(code_region):
     response.raise_for_status()
     return response.json().get("Results", [])
 
+# Fonction pour récupérer la liste des régions disponibles
 def get_regions_disponibles():
     query = {
         "Query": """
@@ -29,6 +31,7 @@ def get_regions_disponibles():
     raw = response.json().get("Results", [])
     return list({r["code_region"] for r in raw if "code_region" in r})
 
+# Fonction pour récupérer la région avec le plus de services
 def region_with_most_services():
     query = {
         "Query": "from stations select code_region, services"
@@ -66,7 +69,7 @@ def region_with_most_services():
     top_region, top_count = sorted_regions[0]
     return top_region, top_count
 
-
+# Fonction pour récupérer la région avec les prix les plus bas
 def region_with_lowest_prices():
     query = {
        "Query": """
